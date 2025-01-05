@@ -8,6 +8,7 @@ const port = process.env.PORT || 6000;
 // Importing Routers
 const homeRoute = require("./src/Routers/home.route");
 const todoRouter = require("./src/Routers/todo.route");
+const userRouter = require("./src/Routers/user.route");
 
 // Middlewares
 app.use(express.json());
@@ -25,6 +26,8 @@ mongoose
 app.use("/", homeRoute);
 
 app.use("/todo", todoRouter);
+
+app.use("/user", userRouter);
 
 app.listen(port, () => {
   console.log(`server is running on port: ${port}`);
