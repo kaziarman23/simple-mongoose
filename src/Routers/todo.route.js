@@ -1,8 +1,9 @@
 const express = require("express");
 const route = express.Router();
 const Todo = require("../Schema/todoSchema");
+const checkingLogin = require("../Middleware/checkingLogin");
 
-route.get("/", async (req, res) => {
+route.get("/", checkingLogin, async (req, res) => {
   const result = await Todo.find();
   res.status(200).send(result);
 });
